@@ -1,0 +1,21 @@
+[flake8]
+max-line-length = 120
+ignore = E402,W503
+extend-ignore = E203
+exclude =
+    # Ignore front files
+    front/*,
+    terraform/*,
+    ci/*,
+    ahoy/*assets/*,
+    # Ignore virtualenvs
+    venv,.tox,
+    # Ignore metrics
+    metrics, worker_metrics,
+    __pycache__,
+    # Ignore git files
+    .git
+
+
+# TODO: currently we suppress F401,F403,F811 this should be somehow fixed later.
+# Use grep F401, F811 or F403 to find all suppressors.
