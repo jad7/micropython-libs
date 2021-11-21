@@ -4,7 +4,8 @@ import time
 import ntptime
 from machine import RTC
 from micropython import const
-from timers import Tmr
+
+from altimer import AlTimer
 
 _rtc = RTC()
 
@@ -108,5 +109,5 @@ def get_time_diff_ms(cmp_to_ms):
         return crnt
 
 
-_clock_timer = Tmr(period_ms=_ONE_MINUTE, func=_time_tick)  # 1m
-_time_sync_timer = Tmr(period_ms=24 * 60 * _ONE_MINUTE, func=sync_time)  # 1D
+_clock_timer = AlTimer(period_ms=_ONE_MINUTE, func=_time_tick)  # 1m
+_time_sync_timer = AlTimer(period_ms=24 * 60 * _ONE_MINUTE, func=sync_time)  # 1D
